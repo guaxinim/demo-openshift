@@ -29,8 +29,7 @@ def buildApp(String project, String gitUrl, String app){
 }
 
 def projectSet(String project) {
-	sh "oc login https://master.brasilia-34e9.open.redhat.com:443 --token=84n3Ng99ijCQMa8V5s4IKrUZWgiJclmOOJvMd0zLG9k"
-	sh "oc login --insecure-skip-tls-verify=true https://master.rhpds311.openshift.opentlc.com:443 --token=Miu0-D9uNqfVOmyBlLLB8lYWhrL18nFXVxFi7yw5z_c"
+	sh "oc login --insecure-skip-tls-verify=true https://master.brasilia-34e9.open.redhat.com:443 --token=84n3Ng99ijCQMa8V5s4IKrUZWgiJclmOOJvMd0zLG9k"
     sh "oc new-project ${project} || echo 'Project exists'"
     sh "oc project ${project}"
 }
