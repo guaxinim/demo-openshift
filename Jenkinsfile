@@ -1,6 +1,6 @@
 node('maven') {
-	def app = 'hello-world'
-	def cliente = 'cliente'
+	def app = 'demo-openshift'
+	def cliente = 'brasilcap'
 	def gitUrl = 'https://github.com/guaxinim/demo-openshift.git'
 
     stage 'Build image and deploy to dev'
@@ -29,7 +29,7 @@ def buildApp(String project, String gitUrl, String app){
 }
 
 def projectSet(String project) {
-	sh "oc login -u admin -p redhat@123 https://master.example.com:8443"
+	sh "oc login https://master.brasilia-34e9.open.redhat.com:443 --token=84n3Ng99ijCQMa8V5s4IKrUZWgiJclmOOJvMd0zLG9k"
 	sh "oc login --insecure-skip-tls-verify=true https://master.rhpds311.openshift.opentlc.com:443 --token=Miu0-D9uNqfVOmyBlLLB8lYWhrL18nFXVxFi7yw5z_c"
     sh "oc new-project ${project} || echo 'Project exists'"
     sh "oc project ${project}"
